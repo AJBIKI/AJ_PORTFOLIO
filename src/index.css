@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-primary: #ffffef;
+  --color-brand-on-primary: #293500;
+  --color-primary-container: #c8f135;
+  --color-on-primary-container: #566c00;
+  
+  --color-primary-fixed: #c9f236;
+  --color-primary-fixed-dim: #aed50d;
+  --color-on-primary-fixed: #171e00;
+  
+  --color-secondary: #8fcfee;
+  --color-on-secondary: #003546;
+  --color-secondary-container: #005771;
+  --color-on-secondary-container: #8bcbea;
+  
+  --color-surface-dim: #131313;
+  --color-surface-bright: #3a3939;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353534;
+  
+  --color-on-background: #e5e2e1;
+  --color-outline: #8f937b;
+  --color-outline-variant: #444934;
+}
+
+:root {
+  color-scheme: dark;
+  --ink: #0A0A0A;
+  --ink-soft: #141414;
+  --ink-border: #2A2A2A;
+  --ink-muted: #888888;
+  --paper: #F5F2ED;
+  --signal: #C8F135;
+  --data: #A0E0FF;
+}
+
+html {
+  font-family: "Syne", sans-serif;
+  scroll-behavior: smooth;
+  cursor: default;
+}
+
+body {
+  background-color: #131313;
+  color: #e5e2e1;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #131313;
+}
+::-webkit-scrollbar-thumb {
+  background: #353534;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9f236;
+}
+
+/* Grid backgrounds matching editorial brutalism */
+.grid-pattern {
+  background-image: radial-gradient(circle, #353534 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.checkered-pattern {
+  background-image: radial-gradient(#353534 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.diagonal-grid {
+  background-image: linear-gradient(45deg, #1c1c19 25%, transparent 25%), 
+                    linear-gradient(-45deg, #1c1c19 25%, transparent 25%), 
+                    linear-gradient(45deg, transparent 75%, #1c1c19 75%), 
+                    linear-gradient(-45deg, transparent 75%, #1c1c19 75%);
+  background-size: 4px 4px;
+}
+
+/* Animations */
+.terminal-cursor::after {
+  content: '_';
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  from, to { color: transparent; }
+  50% { color: #c9f236; }
+}
+
+.pulsing-dot {
+  animation: pulseAnimation 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseAnimation {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.9); }
+}
+
+/* Light Mode Overrides */
+.light-theme {
+  background-color: #F5F2ED;
+  color: #0A0A0A;
+}
+
+.light-theme body {
+  background-color: #F5F2ED;
+  color: #0A0A0A;
+}
+
+.editorial-border {
+  border: 1px solid #D8D4CE;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Selection colors */
+::selection {
+  background: #c9f236;
+  color: #171e00;
+}
